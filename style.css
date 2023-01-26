@@ -5,9 +5,38 @@ html {
 }
 
 /* Layout */
-
+.display {
+    height: 100px;
+    width: 500px;
+    background: lightgrey;
+    border: 1px solid black;
+    margin: 10% 10% 0 10%;
+}
+.calc {
+    height: 500px;
+    width: 500px;
+    margin: 0 auto;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+}
+.btn {
+    height: 50px;
+    width: 75px;
+    margin: 1%;
+}
+.bigBtn {
+    height: 50px;
+    width: 160px;
+    margin: 1%;
+}
+.pad {
+    margin: 10% 5% 10% 15%;
+}
 
 /* Other styling */
-
+.calc {
+    background: darkgrey;
+}
 
 /* Mobile */
