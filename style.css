@@ -48,5 +48,15 @@ html {
 .calc {
     background: darkgrey;
 }
+footer {
+    text-align: center;
+    padding-top: 2%;
+    font-size: 1.5rem;
+}
+a:link, a:visited {
+    color: darkgreen;
+    filter: drop-shadow(2px 2px 3px white);
+    text-decoration: none;
+}
 
 /* Mobile */
