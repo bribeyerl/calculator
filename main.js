@@ -26,6 +26,11 @@ function handleOperator(nextOperator) {
     const { firstOperand, displayValue, operator } = calc
     const inputValue = parseFloat(displayValue)
 
+    if (operator && calc.waitingForSecondOperand) {
+        calc.operator = nextOperator
+        return
+    }
+
     if (firstOperand === null && !isNaN(inputValue)) {
         calc.firstOperand = inputValue
     } else if (operator) {
@@ -34,7 +39,7 @@ function handleOperator(nextOperator) {
         calc.displayValue = String(result)
         calc.firstOperand = result
     }
-    
+
     calc.waitingForSecondOperand = true
     calc.operator = nextOperator
 }
@@ -50,6 +55,13 @@ function operate(firstOperand, secondOperand, operator) {
         return firstOperand / secondOperand
     }
     return secondOperand
+}
+
+function clearCalc() {
+    calc.displayValue = '0'
+    calc.firstOperand = null
+    calc.waitingForSecondOperand = false
+    calc.operator = null
 }
 
 function updateDisplay() {
@@ -77,7 +89,8 @@ keys.addEventListener('click', (event) => {
         return
     }
     if (target.classList.contains('ac')) {
-        console.log('all clear', target.value)
+        clearCalc()
+        updateDisplay()
         return
     }
     if (target.classList.contains('clear')) {
