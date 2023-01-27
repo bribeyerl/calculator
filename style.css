@@ -1,0 +1,62 @@
+/* Main style */
+html {
+    font-size: 10px;
+    font-family: 'Roboto', sans-serif;
+    background-image: url('images/desk.png');
+    background-repeat: no-repeat;
+    background-size: 200% 200%;
+}
+
+/* Layout */
+.display {
+    height: 100px;
+    width: 500px;
+    background: lightgrey;
+    border: 1px solid black;
+    margin: 10% 10% 0 10%;
+    text-align: right;
+    padding-right: 2%;
+    font-size: 3rem;
+}
+.calc {
+    height: 500px;
+    width: 500px;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 5%;
+    filter: drop-shadow(5px 5px 4px black);
+    display: flex;
+    flex-wrap: wrap;
+}
+.btn {
+    height: 50px;
+    width: 75px;
+    margin: 1%;
+    filter: drop-shadow(2px 2px 2px black);
+}
+.bigBtn {
+    height: 50px;
+    width: 160px;
+    margin: 1%;
+    filter: drop-shadow(2px 2px 2px black);
+}
+.pad {
+    margin: 10% 5% 10% 17%;
+}
+
+/* Other styling */
+.calc {
+    background: darkgrey;
+}
+footer {
+    text-align: center;
+    padding-top: 2%;
+    font-size: 1.5rem;
+}
+a:link, a:visited {
+    color: darkgreen;
+    filter: drop-shadow(2px 2px 3px white);
+    text-decoration: none;
+}
+
+/* Mobile */
