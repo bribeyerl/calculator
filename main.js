@@ -28,9 +28,28 @@ function handleOperator(nextOperator) {
 
     if (firstOperand === null && !isNaN(inputValue)) {
         calc.firstOperand = inputValue
+    } else if (operator) {
+        const result = operate(firstOperand, inputValue, operator)
+
+        calc.displayValue = String(result)
+        calc.firstOperand = result
     }
+    
     calc.waitingForSecondOperand = true
     calc.operator = nextOperator
+}
+
+function operate(firstOperand, secondOperand, operator) {
+    if (operator === '+') {
+        return firstOperand + secondOperand
+    } else if (operator === '-') {
+        return firstOperand - secondOperand
+    } else if (operator === '*') {
+        return firstOperand * secondOperand
+    } else if (operator === '/') {
+        return firstOperand / secondOperand
+    }
+    return secondOperand
 }
 
 function updateDisplay() {
