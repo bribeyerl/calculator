@@ -2,6 +2,9 @@
 html {
     font-size: 10px;
     font-family: 'Roboto', sans-serif;
+    background-image: url('images/desk.png');
+    background-repeat: no-repeat;
+    background-size: 200% 200%;
 }
 
 /* Layout */
@@ -12,13 +15,16 @@ html {
     border: 1px solid black;
     margin: 10% 10% 0 10%;
     text-align: right;
-    font-size: 2rem;
+    padding-right: 2%;
+    font-size: 3rem;
 }
 .calc {
     height: 500px;
     width: 500px;
     margin: 0 auto;
     border: 1px solid black;
+    border-radius: 5%;
+    filter: drop-shadow(5px 5px 4px black);
     display: flex;
     flex-wrap: wrap;
 }
@@ -26,14 +32,16 @@ html {
     height: 50px;
     width: 75px;
     margin: 1%;
+    filter: drop-shadow(2px 2px 2px black);
 }
 .bigBtn {
     height: 50px;
     width: 160px;
     margin: 1%;
+    filter: drop-shadow(2px 2px 2px black);
 }
 .pad {
-    margin: 10% 5% 10% 15%;
+    margin: 10% 5% 10% 17%;
 }
 
 /* Other styling */
