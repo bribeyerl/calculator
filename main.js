@@ -5,17 +5,40 @@ const calc = {
     operator: null,
 }
 
+function inputDigit(digit) {
+    const { displayValue, waitingForSecondOperand } = calc
+
+    if (waitingForSecondOperand === true) {
+        calc.displayValue = digit
+        calc.waitingForSecondOperand = false
+    } else {
+        calc.displayValue = displayValue === '0' ? digit : displayValue + digit
+    }
+}
+
+function inputDecimal(dot) {
+    if (!calc.displayValue.includes(dot)) {
+        calc.displayValue += dot
+    }
+}
+
+function handleOperator(nextOperator) {
+    const { firstOperand, displayValue, operator } = calc
+    const inputValue = parseFloat(displayValue)
+
+    if (firstOperand === null && !isNaN(inputValue)) {
+        calc.firstOperand = inputValue
+    }
+    calc.waitingForSecondOperand = true
+    calc.operator = nextOperator
+}
+
 function updateDisplay() {
     const display = document.querySelector('.display')
     display.value = calc.displayValue
 }
 
 updateDisplay()
-
-function inputDigit(digit) {
-    const { displayValue } = calc
-    calc.displayValue = displayValue === '0' ? digit : displayValue + digit
-}
 
 const keys = document.querySelector('.pad')
 keys.addEventListener('click', (event) => {
@@ -25,11 +48,13 @@ keys.addEventListener('click', (event) => {
         return
     }
     if (target.classList.contains('operator')) {
-        console.log('operator', target.value)
+        handleOperator(target.value)
+        updateDisplay()
         return
     }
     if (target.classList.contains('decimal')) {
-        console.log('decimal', target.value)
+        inputDecimal(target.value)
+        updateDisplay()
         return
     }
     if (target.classList.contains('ac')) {
@@ -42,5 +67,4 @@ keys.addEventListener('click', (event) => {
     }
     inputDigit(target.value)
     updateDisplay()
-
 })
