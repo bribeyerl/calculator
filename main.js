@@ -64,6 +64,10 @@ function clearCalc() {
     calc.operator = null
 }
 
+function deleteOne() {
+    calc.displayValue = calc.displayValue.slice(0,-1)
+}
+
 function updateDisplay() {
     const display = document.querySelector('.display')
     display.value = calc.displayValue
@@ -94,7 +98,8 @@ keys.addEventListener('click', (event) => {
         return
     }
     if (target.classList.contains('clear')) {
-        console.log('clear', target.value)
+        deleteOne()
+        updateDisplay()
         return
     }
     inputDigit(target.value)
